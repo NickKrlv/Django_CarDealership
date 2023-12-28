@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
 from cars import views
@@ -10,4 +12,4 @@ urlpatterns = [
     path('all_cars/', views.AllCarsView.as_view(), name='all_cars'),
     path('car_detail/<int:pk>/', views.CarDetailView.as_view(), name='car_detail'),
     path('car_brand/', views.CarBrandListView.as_view(), name='car_brand'),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

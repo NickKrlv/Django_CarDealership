@@ -1,0 +1,26 @@
+{% extends 'cars/base.html' %}
+
+{% block title %}
+  {% if form.instance.pk %}
+    Редактирование записи
+  {% else %}
+    Создание новой записи
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>
+      {% if form.instance.pk %}
+        Редактирование записи
+      {% else %}
+        Создание новой записи
+      {% endif %}
+    </h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+  </div>
+{% endblock %}
