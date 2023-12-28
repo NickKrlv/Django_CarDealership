@@ -1,0 +1,29 @@
+{% extends 'cars/base.html' %}
+
+{% block title %}Все автомобили в наличии{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Все автомобили в наличии</h2>
+    {% if cars %}
+      <p>Бренд: {{ cars.first.car_brand.name }}</p>
+      <div class="row">
+        {% for car in cars %}
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="{{ car.photo.url }}" alt="{{ car.car_brand.name }} {{ car.model }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ car.car_brand.name }} {{ car.model }}</h5>
+                <p class="card-text">Год выпуска: {{ car.year }}</p>
+                <p class="card-text">Цена: {{ car.price }} $</p>
+                <a href="#" class="btn btn-primary">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>Нет доступных автомобилей.</p>
+    {% endif %}
+  </div>
+{% endblock %}

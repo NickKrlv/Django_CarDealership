@@ -1,0 +1,14 @@
+{% extends 'cars/base.html' %}
+
+{% block title %}Список брендов автомобилей{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Список брендов автомобилей</h2>
+    <ul>
+      {% for car_brand in car_brand_list %}
+        <li>{{ car_brand.car_brand }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
