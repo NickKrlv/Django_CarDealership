@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from cars.forms import CarForm
-from cars.models import Car_brand, Car
+from cars.forms import CarForm, VersionForm
+from cars.models import Car_brand, Car, Version
 from django.urls import reverse_lazy
 
 
@@ -61,4 +61,11 @@ class CarUpdateView(UpdateView):
     model = Car
     form_class = CarForm
     template_name = 'cars/car_form.html'
+    success_url = reverse_lazy('index')
+
+
+class VersionCreateView(CreateView):
+    model = Version
+    form_class = VersionForm
+    template_name = 'cars/version_form.html'
     success_url = reverse_lazy('index')

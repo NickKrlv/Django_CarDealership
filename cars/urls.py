@@ -13,4 +13,5 @@ urlpatterns = [
                   path('car_brand/', views.CarBrandListView.as_view(), name='car_brand'),
                   path('create/', views.CarCreateView.as_view(), name='car_create'),
                   path('update/<int:pk>/', views.CarUpdateView.as_view(), name='car_update'),
+                  path('version_create/', views.VersionCreateView.as_view(), name='version_create'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

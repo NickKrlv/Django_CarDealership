@@ -30,3 +30,19 @@ class Car_brand(models.Model):
     class Meta:
         verbose_name = 'Марка автомобиля'
         verbose_name_plural = 'Марки автомобилей'
+
+
+class Version(models.Model):
+    car_version = models.ForeignKey('Car', on_delete=models.CASCADE, verbose_name='Автомобиль')
+    version_number = models.IntegerField(verbose_name='Номер версии')
+    version_name = models.CharField(max_length=100, verbose_name='Название версии')
+    is_current = models.BooleanField(default=False, verbose_name='Текущая версия')
+
+    def __str__(self):
+        return self.version_name
+
+    class Meta:
+        verbose_name = 'Версия'
+        verbose_name_plural = 'Версии'
+
+

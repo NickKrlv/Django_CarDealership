@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from blog.models import BlogPost
-from cars.models import Car, Car_brand
+from cars.models import Car, Car_brand, Version
 
 
 @admin.register(Car)
@@ -13,6 +13,11 @@ class CarAdmin(admin.ModelAdmin):
 @admin.register(Car_brand)
 class CarBrandAdmin(admin.ModelAdmin):
     list_display = ('pk', 'car_brand')
+
+
+@admin.register(Version)
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('car_version', 'version_number', 'version_name', 'is_current')
 
 
 @admin.register(BlogPost)
