@@ -6,7 +6,7 @@ from cars.models import Car, Car_brand
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    list_display = ('car_brand', 'model', 'year', 'price')
+    list_display = ('car_brand', 'model', 'year', 'price', 'vin_number')
     list_filter = ('car_brand', 'year')
 
 
