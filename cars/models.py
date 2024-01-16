@@ -11,6 +11,8 @@ class Car(models.Model):
     photo = models.ImageField(upload_to='cars/', **NULLABLE, verbose_name='Фото автомобиля')
     price = models.IntegerField(verbose_name='Цена автомобиля', **NULLABLE)
 
+    vin_number = models.CharField(max_length=17, unique=True, verbose_name='Номер VIN', **NULLABLE)
+
     def __str__(self):
         return f'{self.car_brand} {self.model}'
 

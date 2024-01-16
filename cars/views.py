@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from cars.forms import CarForm
 from cars.models import Car_brand, Car
 from django.urls import reverse_lazy
@@ -22,13 +22,6 @@ class ContactsView(ListView):
         message = self.request.POST.get('message')
         print(name, phone, message)
         return render(request, self.template_name, {'name': name, 'phone': phone, 'message': message})
-
-
-class AddCarView(CreateView):
-    model = Car
-    form_class = CarForm
-    template_name = 'cars/add_car.html'
-    success_url = reverse_lazy('index')
 
 
 class AboutView(ListView):
@@ -55,3 +48,17 @@ class CarBrandListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset
+
+
+class CarCreateView(CreateView):
+    model = Car
+    form_class = CarForm
+    template_name = 'cars/car_form.html'
+    success_url = reverse_lazy('index')
+
+
+class CarUpdateView(UpdateView):
+    model = Car
+    form_class = CarForm
+    template_name = 'cars/car_form.html'
+    success_url = reverse_lazy('index')

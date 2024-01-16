@@ -16,7 +16,8 @@
                 <h5 class="card-title">{{ car.car_brand.name }} {{ car.model }}</h5>
                 <p class="card-text">Год выпуска: {{ car.year }}</p>
                 <p class="card-text">Цена: {{ car.price }} $</p>
-                <a href="#" class="btn btn-primary">Подробнее</a>
+                <a href="{% url 'car_detail' car.pk %}" class="btn btn-primary">Подробнее</a>
+                <a href="{% url 'car_update' car.pk %}" class="btn btn-secondary">Изменить</a>
               </div>
             </div>
           </div>

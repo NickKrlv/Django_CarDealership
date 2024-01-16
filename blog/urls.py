@@ -9,4 +9,7 @@ urlpatterns = [
     path('<slug:slug>/', BlogPostDetailView.as_view(), name='blogpost_detail'),
     path('<slug:slug>/update/', BlogPostUpdateView.as_view(), name='blogpost_update'),
     path('<slug:slug>/delete/', BlogPostDeleteView.as_view(), name='blogpost_delete'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
