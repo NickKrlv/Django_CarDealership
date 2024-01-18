@@ -11,7 +11,9 @@
         {% for car in cars %}
         <div class="col-md-4 mb-4">
             <div class="card">
+                {% if car.photo %}
                 <img src="{{ car.photo.url }}" class="card-img-top" alt="{{ car.car_brand.name }} {{ car.model }}">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ car.car_brand.name }} {{ car.model }}</h5>
                     <p class="card-text">Год выпуска: {{ car.year }}</p>

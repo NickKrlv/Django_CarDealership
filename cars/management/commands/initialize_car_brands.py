@@ -6,8 +6,8 @@ class Command(BaseCommand):
     help = 'Initialize car brands in the database'
 
     def handle(self, *args, **options):
-        car_brands = ['Toyota', 'Ford', 'Chevrolet', 'Honda', 'Hyundai', 'Nissan',
-                      'Mercedes-Benz', 'BMW', 'Subaru', 'Mazda', 'Lexus', 'Jeep', 'Tesla', 'Volvo', 'Porsche']
+        car_brands = ['Toyota', 'Ford', 'Chevrolet', 'Honda', 'Hyundai', 'Nissan', 'Volkswagen', 'Audi',
+                      'Mercedes-Benz', 'BMW', 'Subaru', 'Mazda', 'Lexus', 'Jeep', 'Tesla', 'Volvo', 'Porsche', 'KIA']
 
         for brand in car_brands:
             Car_brand.objects.get_or_create(car_brand=brand)
