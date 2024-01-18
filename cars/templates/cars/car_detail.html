@@ -5,7 +5,9 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-8">
+        {% if car.photo %}
         <img class="img-fluid rounded" src="{{ car.photo.url }}" alt="{{ car.car_brand }} {{ car.model }}">
+        {% endif %}
       </div>
       <div class="col-md-4">
         <h2 class="mb-3">{{ car.car_brand.name }} {{ car.model }}</h2>
