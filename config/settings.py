@@ -144,6 +144,6 @@ EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'your_yandex_email@example.com'
-EMAIL_HOST_PASSWORD = 'your_yandex_password'
+EMAIL_HOST_PASSWORD = 'fkwcjasgmelidoly'
 DEFAULT_FROM_EMAIL = 'your_yandex_email@example.com'
 YOUR_EMAIL_ADDRESS = 'your_email@example.com'
