@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from cars.forms import CarForm, VersionForm
 from cars.models import Car_brand, Car, Version
 from django.urls import reverse_lazy
@@ -50,18 +52,28 @@ class CarBrandListView(ListView):
         return queryset
 
 
+@method_decorator(login_required, name='dispatch')
 class CarCreateView(CreateView):
     model = Car
     form_class = CarForm
     template_name = 'cars/car_form.html'
     success_url = reverse_lazy('index')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
+
+@method_decorator(login_required, name='dispatch')
 class CarUpdateView(UpdateView):
     model = Car
     form_class = CarForm
     template_name = 'cars/car_form.html'
     success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class VersionCreateView(CreateView):
